@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-19T19:28:58.142Z</updated>
+  <updated>2020-03-19T19:26:25.863Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,25 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>test_2</title>
-    <link href="http://yoursite.com/2020/03/20/test-2/"/>
-    <id>http://yoursite.com/2020/03/20/test-2/</id>
-    <published>2020-03-19T19:28:18.000Z</published>
-    <updated>2020-03-19T19:28:58.142Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="一些坑" scheme="http://yoursite.com/categories/%E4%B8%80%E4%BA%9B%E5%9D%91/"/>
-    
-    
-      <category term="123" scheme="http://yoursite.com/tags/123/"/>
-    
-  </entry>
   
   <entry>
     <title>GitHub的搭建博客的坑</title>
@@ -58,40 +39,6 @@
     
     
       <category term="Hexo的坑" scheme="http://yoursite.com/tags/Hexo%E7%9A%84%E5%9D%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>test</title>
-    <link href="http://yoursite.com/2020/03/20/test/"/>
-    <id>http://yoursite.com/2020/03/20/test/</id>
-    <published>2020-03-19T18:31:27.000Z</published>
-    <updated>2020-03-19T18:48:51.579Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="1" scheme="http://yoursite.com/categories/1/"/>
-    
-    
-      <category term="Zhou" scheme="http://yoursite.com/tags/Zhou/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello</title>
-    <link href="http://yoursite.com/2020/03/18/Hello/"/>
-    <id>http://yoursite.com/2020/03/18/Hello/</id>
-    <published>2020-03-18T15:40:59.000Z</published>
-    <updated>2020-03-18T15:40:59.827Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
     
   </entry>
   
