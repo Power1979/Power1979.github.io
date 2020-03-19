@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-18T16:46:07.068Z</updated>
+  <updated>2020-03-19T19:26:25.863Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>GitHub的搭建博客的坑</title>
     <link href="http://yoursite.com/2020/03/20/GitHub%E7%9A%84%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%9D%91/"/>
     <id>http://yoursite.com/2020/03/20/GitHub%E7%9A%84%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%9D%91/</id>
-    <published>2020-03-19T19:17:58.701Z</published>
-    <updated>2020-03-18T16:46:07.068Z</updated>
+    <published>2020-03-19T19:25:24.000Z</published>
+    <updated>2020-03-19T19:26:25.863Z</updated>
     
     <content type="html"><![CDATA[<h1 id="记录一些坑"><a href="#记录一些坑" class="headerlink" title="记录一些坑"></a>记录一些坑</h1><h3 id="此次的坑是-GitHub下搭建Hexo博客的坑"><a href="#此次的坑是-GitHub下搭建Hexo博客的坑" class="headerlink" title="此次的坑是 GitHub下搭建Hexo博客的坑"></a>此次的坑是 GitHub下搭建Hexo博客的坑</h3><ol><li><h4 id="关于访问-localhost-4000的坑"><a href="#关于访问-localhost-4000的坑" class="headerlink" title="关于访问 localhost:4000的坑"></a>关于访问 localhost:4000的坑</h4><h5 id="网上很多人说改localhost为-127-0-0-1-亦或者是改端口为5000。但是我们要注意，根据官方文档Hexo服务器中说到Hexo-3-0-把服务器独立成了个别模块，您必须先安装-hexo-server-才能使用。"><a href="#网上很多人说改localhost为-127-0-0-1-亦或者是改端口为5000。但是我们要注意，根据官方文档Hexo服务器中说到Hexo-3-0-把服务器独立成了个别模块，您必须先安装-hexo-server-才能使用。" class="headerlink" title="网上很多人说改localhost为 127.0.0.1 亦或者是改端口为5000。但是我们要注意，根据官方文档Hexo服务器中说到Hexo 3.0 把服务器独立成了个别模块，您必须先安装 hexo-server 才能使用。"></a>网上很多人说改localhost为 127.0.0.1 亦或者是改端口为5000。但是我们要注意，根据官方文档<a href="https://hexo.io/zh-cn/docs/server.html#hexo-server" target="_blank" rel="noopener">Hexo服务器</a>中说到Hexo 3.0 把服务器独立成了个别模块，您必须先安装 hexo-server 才能使用。</h5></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo version     &#x2F;&#x2F;查询Hexo版本号</span><br><span class="line"></span><br><span class="line">npm install hexo-server --save  &#x2F;&#x2F;安装hexokinase-server</span><br><span class="line"></span><br><span class="line">hexo server    &#x2F;&#x2F;启动服务器 您的网站会在 http:&#x2F;&#x2F;localhost:4000 下启动</span><br></pre></td></tr></table></figure><h3 id="如果你想更改端口号，或是执行遇到了EADDRINUSE错误，可在执行时使用-p选项指定其他端口"><a href="#如果你想更改端口号，或是执行遇到了EADDRINUSE错误，可在执行时使用-p选项指定其他端口" class="headerlink" title="如果你想更改端口号，或是执行遇到了EADDRINUSE错误，可在执行时使用-p选项指定其他端口"></a>如果你想更改端口号，或是执行遇到了EADDRINUSE错误，可在执行时使用-p选项指定其他端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server -p 5000    &#x2F;&#x2F;以更改端口为5000为例</span><br></pre></td></tr></table></figure><ol start="2"><li><h4 id="还有一个坑是域名的问题。"><a href="#还有一个坑是域名的问题。" class="headerlink" title="还有一个坑是域名的问题。"></a>还有一个坑是域名的问题。</h4><h5 id="在-source目录下，创建一个记事本写入你绑定的域名时，切记保存文件名称为CNAME，并且是所有文件，然后把-txt后缀删掉-这是一个大坑-如果你不这样做，会导致你每次git-d-部署的时候你的博客会出现404访问错误！！！"><a href="#在-source目录下，创建一个记事本写入你绑定的域名时，切记保存文件名称为CNAME，并且是所有文件，然后把-txt后缀删掉-这是一个大坑-如果你不这样做，会导致你每次git-d-部署的时候你的博客会出现404访问错误！！！" class="headerlink" title="在/source目录下，创建一个记事本写入你绑定的域名时，切记保存文件名称为CNAME，并且是所有文件，然后把.txt后缀删掉 ==这是一个大坑== 如果你不这样做，会导致你每次git d 部署的时候你的博客会出现404访问错误！！！"></a>在/source目录下，创建一个记事本写入你绑定的域名时，切记保存文件名称为CNAME，并且是所有文件，然后把.txt后缀删掉 ==这是一个大坑== 如果你不这样做，会导致你每次git d 部署的时候你的博客会出现404访问错误！！！</h5></li></ol>]]></content>
     
@@ -35,6 +35,10 @@
     </summary>
     
     
+      <category term="一些坑" scheme="http://yoursite.com/categories/%E4%B8%80%E4%BA%9B%E5%9D%91/"/>
+    
+    
+      <category term="Hexo的坑" scheme="http://yoursite.com/tags/Hexo%E7%9A%84%E5%9D%91/"/>
     
   </entry>
   
