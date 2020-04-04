@@ -14,7 +14,7 @@
     
     
     
-    <title>jie Zhou&#39;s Blog | 一切节省，归根到底都归结为时间的节省</title>
+    <title>分类: C语言 | jie Zhou&#39;s Blog | 一切节省，归根到底都归结为时间的节省</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -23,7 +23,7 @@
     <meta name="keywords" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="jie Zhou&#39;s Blog">
-<meta property="og:url" content="http://jiezhou.xyz/index.html">
+<meta property="og:url" content="http://jiezhou.xyz/categories/C%E8%AF%AD%E8%A8%80/index.html">
 <meta property="og:site_name" content="jie Zhou&#39;s Blog">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Jie Zhou">
@@ -62,7 +62,7 @@
     <div class="scroll-wrap flex-col">
       <ul class="nav">
         
-            <li class="waves-block waves-effect active">
+            <li class="waves-block waves-effect">
               <a href="/"  >
                 <i class="icon icon-lg icon-home"></i>
                 主页
@@ -83,7 +83,7 @@
               </a>
             </li>
         
-            <li class="waves-block waves-effect">
+            <li class="waves-block waves-effect active">
               <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
@@ -115,7 +115,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">jie Zhou&#39;s Blog</div>
+        <div class="flex-col header-title ellipsis">分类: C语言</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -134,40 +134,60 @@
         
     </div>
 </header>
-<header class="content-header index-header">
+<header class="content-header categories-header">
 
     <div class="container fade-scale">
-        <h1 class="title">jie Zhou&#39;s Blog</h1>
+        <h1 class="title">分类: C语言</h1>
         <h5 class="subtitle">
-            
-                一切节省，归根到底都归结为时间的节省
             
         </h5>
     </div>
 
     
+<div class="tabs-bar container">
+    <nav class="tags-list">
+        <a href="/categories" style="-webkit-order:-1;order:-1" class="tags-list-item waves-effect waves-button waves-light
+            ">All</a>
+        
+
+            <a href="/categories/%E4%B8%80%E4%BA%9B%E5%9D%91/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">一些坑</a>
+
+        
+
+            <a href="/categories/Git/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">Git</a>
+
+        
+
+            <a href="/categories/C%E8%AF%AD%E8%A8%80/" style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light active">C语言</a>
+
+        
+    </nav>
+    <!-- PC show more-->
+    <div class="tags-list-more">
+        <a href="javascript:;" onclick="BLOG.tabBar(this)" class="action tags-list-item waves-effect waves-circle waves-light"><i class="icon icon-ellipsis-h"></i></a>
+    </div>
+</div>
+
 
 
 </header>
 
-<div class="container body-wrap">
-
-    <ul class="post-list">
+<div class="container body-wrap fade">
     
-        <li class="post-list-item fade">
-            <article id="post-C语言变量的交换方式-不用临时变量"
-  class="article-card article-type-post" itemprop="blogPost">
+            <div class="waterfall">
+          
 
+            <div class="waterfall-item">
+  <article class="article-card archive-article">
     <div class="post-meta">
-        <time class="post-time" title="2020-04-04 22:24:24" datetime="2020-04-04T14:24:24.000Z"  itemprop="datePublished">2020-04-04</time>
+      <time class="post-time" title="2020-04-04 22:24:24" datetime="2020-04-04T14:24:24.000Z"  itemprop="datePublished">2020-04-04</time>
 
-        
+      
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></li></ul>
 
 
 
     </div>
-
     
 
 
@@ -179,20 +199,6 @@
 
 
 
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        除了这种用临时变量交换的方式，还可以用异或123456&#x2F;&#x2F;临时变量int a&#x3D;0,b&#x3D;1;int temp;temp&#x3D;a; a&#x3D;b;b&#x3D;temp;
-
-
-12345&#x2F;&#x2F;根据a^b^b&#x3D;a int a&#x3D;0,b&#x3D;1;a&#x3D;a^b;  &#x2F;&#x2F;a&#x3D;...
-    
-
-        <a href="/2020/04/04/C%E8%AF%AD%E8%A8%80%E5%8F%98%E9%87%8F%E7%9A%84%E4%BA%A4%E6%8D%A2%E6%96%B9%E5%BC%8F-%E4%B8%8D%E7%94%A8%E4%B8%B4%E6%97%B6%E5%8F%98%E9%87%8F/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
     
     <div class="post-footer">
         
@@ -200,113 +206,15 @@
 
     </div>
     
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Git上传文件"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2020-03-20 22:24:24" datetime="2020-03-20T14:24:24.000Z"  itemprop="datePublished">2020-03-20</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Git/">Git</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2020/03/20/Git%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/">关于使用Git上传文件到GitHub的问题</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        关于使用Git上传文件到GitHub的问题Git是一种分布式版本控制软件1. 绑定用户12$ git config --global user.name &quot;你的GitHub名称&quot;$ git config --global user.email &quot;你的GitHub邮箱&quot;
-1.1. 设置SSH key123$ ssh-keygen -t rsa -C &q...
-    
-
-        <a href="/2020/03/20/Git%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/" rel="tag">Git上传文件</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-GitHub的搭建博客的坑"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2020-03-20 03:25:24" datetime="2020-03-19T19:25:24.000Z"  itemprop="datePublished">2020-03-20</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E4%B8%80%E4%BA%9B%E5%9D%91/">一些坑</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2020/03/20/GitHub%E7%9A%84%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%9D%91/">GitHub的搭建博客的坑</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        记录一些坑此次的坑是 GitHub下搭建Hexo博客的坑
-关于访问 localhost:4000的坑网上很多人说改localhost为 127.0.0.1 亦或者是改端口为5000。但是我们要注意，根据官方文档Hexo服务器中说到Hexo 3.0 把服务器独立成了个别模块，您必须先安装 hexo-server 才能使用。
-
-12345hexo version     &#x2F;&#x2F;...
-    
-
-        <a href="/2020/03/20/GitHub%E7%9A%84%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%9D%91/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo%E7%9A%84%E5%9D%91/" rel="tag">Hexo的坑</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-    </ul>
-
-    
-
+  </article>
 </div>
+
+        
+            </div>
+        
+    
+</div>
+
 
         <footer class="footer">
     <div class="top">
@@ -347,7 +255,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jiezhou.xyz/&title=jie Zhou's Blog&pic=http://jiezhou.xyz/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jiezhou.xyz/categories/C%E8%AF%AD%E8%A8%80/&title=jie Zhou's Blog&pic=http://jiezhou.xyz/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -357,22 +265,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jiezhou.xyz/&title=jie Zhou's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jiezhou.xyz/categories/C%E8%AF%AD%E8%A8%80/&title=jie Zhou's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jiezhou.xyz/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jiezhou.xyz/categories/C%E8%AF%AD%E8%A8%80/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=jie Zhou's Blog&url=http://jiezhou.xyz/&via=http://jiezhou.xyz" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=jie Zhou's Blog&url=http://jiezhou.xyz/categories/C%E8%AF%AD%E8%A8%80/&via=http://jiezhou.xyz" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jiezhou.xyz/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jiezhou.xyz/categories/C%E8%AF%AD%E8%A8%80/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -383,7 +291,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAAAAAAZai4+AAABUklEQVR42u3asRLCIBBF0fz/T8fGwhlHvG+BIuylypiIJ4Vh89jrwuP+GPz67+PFQ5asg1j3cIyvGYN+EdFssmS1ZNX+5Pxm+G/JkiWLs2oUWbJk7WONP5clSxZnkUWXPCAIcXEtL0vWEayZYCg93pJvyZL1cNYdDlIuz8z/nkGWrGYs/gcel8gpF80vS1Yz1tqgll8f34AsWUez0kWXhFDz2zayZPVh8a/xV1PejhCXy7JkHcoii3R6Ni2yi9GSLFnHsWrbKjwqKoa/smTJCtsIeAtCUHbLktWYNfMKStoOgiJblqyWLHJMzvIK/c+NyZLVhlVsBdgQGMmS1ZlV64urNSJs6ROUJesgVi0GSl9045BXlqyWLN4WsOOZNNV2IEtWS1a6rTK1zSlLlqzwQTBe5nksJUtWZxYpmmsxUPGsLFnNWMWidnrZXpZvyZL1bNYLR/INNETtpeUAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3aQZLDIAwFUd//0p7tbAz9kZkao/Yq5UoFHgtFQrou/NzDZ/zN3+/5KteOR4YMGZ9lkC2Ot56uQlZPj0+GDBkdGE8Lk88cPD4IHqZlyJAhY7x1kgjyZPGJKkOGDBl1Rj0cV0pfGTJk9GSQYvKtq7q1oPxaLS5DhowPMvhW/v7zlv6GDBkyPsW4w2ecJpL3aXsA7UqGDBlHMypjEGn6WDkm1BCVIUPGoQxeXo7TxLVt8aOZwGTIkNGAQQJomsylDQYyrvG4WxkyZBzNWAuj6WX92oZIqJUhQ0YfxloBuTb4leKDFoIMGTIOZfAkrNIj5cj0Yu5Kc0kZMmR8lsHvrHiZSi7g+MFN1pUhQ0YDBi8y1y7C3ipxJ7eGMmTIaMCoFKukQE0bk8HqMmTIOJoRT5AtTTislbucJEOGjLMZ/Mo+HbyoHAo/GhkyZHRmkAUmsxsbGgmPvy9DhowGjHp5uZY4pu0HNGwhQ4aM4xgkXKZBudIKLYV4GTJkNGDwS/8gCOKrtLVL/8cuhwwZMg5l1AMoH5UgJSsfRJMhQ0Y3Bm8ApI3MestzkqTKkCHjUMYdPnUMTzSDNqoMGTKOZrw7sMUDNBqhCEO2DBkyzmbwIMt/eseQ2eTsZciQ0YDBr/vTsa0dzYBJLS5DhgwZSwVkffhsS8CVIUPG0Yy09cgTPv7m5f8NGTJk/HtG2gzgKSMfO+PhVYYMGd0YaWLHl+GDGmsrypAhowHjB7Wd0T9Rb5EzAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
