@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>类 &amp; 对象详解 | jie Zhou&#39;s Blog | 一切节省，归根到底都归结为时间的节省</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++类">
+    <meta name="description" content="类 &amp; 对象详解 ①类成员函数 ②类访问修饰符(public、private、protected)- public继承 原修饰符不变；- protected继承 public升级为protected,其余不变；- private继承 修饰符全升级为private private 成员只能被本类成员和友元函数访问，不能被派生类访问 &gt;  protected 成员可以被派生类访问 ③构造">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类 &amp; 对象详解">
+<meta property="og:url" content="http://jiezhou.xyz/2020/10/23/%E7%B1%BB/index.html">
+<meta property="og:site_name" content="jie Zhou&#39;s Blog">
+<meta property="og:description" content="类 &amp; 对象详解 ①类成员函数 ②类访问修饰符(public、private、protected)- public继承 原修饰符不变；- protected继承 public升级为protected,其余不变；- private继承 修饰符全升级为private private 成员只能被本类成员和友元函数访问，不能被派生类访问 &gt;  protected 成员可以被派生类访问 ③构造">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-23T02:43:24.000Z">
+<meta property="article:modified_time" content="2020-10-23T02:48:59.518Z">
+<meta property="article:author" content="Jie Zhou">
+<meta property="article:tag" content="C++类">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="jie Zhou&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Jie Zhou</h5>
+          <a href="mailto:672584200@qq.com" title="672584200@qq.com" class="mail">672584200@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Power1979" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/6406445111/profile?topnav=1&wvr=6&is_all=1" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">类 &amp; 对象详解</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">类 &amp; 对象详解</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-10-23T02:43:24.000Z" itemprop="datePublished" class="page-time">
+  2020-10-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#类-amp-对象详解"><span class="post-toc-number">1.</span> <span class="post-toc-text">类 &amp; 对象详解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#①类成员函数"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">①类成员函数</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#②类访问修饰符-public、private、protected"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">②类访问修饰符(public、private、protected)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#public继承-原修饰符不变；"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">- public继承 原修饰符不变；</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#protected继承-public升级为protected-其余不变；"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">- protected继承 public升级为protected,其余不变；</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#private继承-修饰符全升级为private"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">- private继承 修饰符全升级为private</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#private-成员只能被本类成员和友元函数访问，不能被派生类访问"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">private 成员只能被本类成员和友元函数访问，不能被派生类访问</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#gt-protected-成员可以被派生类访问"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">&gt;  protected 成员可以被派生类访问</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#③构造函数-amp-析构函数"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">③构造函数 &amp; 析构函数</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#构造函数-用于初始化"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">构造函数 用于初始化</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#析构函数-用于释放内存"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">析构函数 用于释放内存</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#④C-拷贝构造函数"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">④C++拷贝构造函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#被调用条件："><span class="post-toc-number">2.</span> <span class="post-toc-text">被调用条件：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-若函数的形参为类对象，调用函数时，实参赋值给形参，系统自动调用拷贝构造函数。（这里可有可能被编译器优化）"><span class="post-toc-number">3.</span> <span class="post-toc-text">2.若函数的形参为类对象，调用函数时，实参赋值给形参，系统自动调用拷贝构造函数。（这里可有可能被编译器优化）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-当函数的返回值是类对象时，系统自动调用拷贝构造函数。（注意会有编译器可能会进行优化，而观察不到拷贝的发生）"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">3.当函数的返回值是类对象时，系统自动调用拷贝构造函数。（注意会有编译器可能会进行优化，而观察不到拷贝的发生）</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#⑤友元函数-可以访问类的-private和protected成员"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">⑤友元函数(可以访问类的 private和protected成员)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#friend-函数和类-可访问"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">friend 函数和类 可访问</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#⑥内联函数"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">⑥内联函数</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#解决程序中函数调用的效率问题"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">解决程序中函数调用的效率问题</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-在内联函数内不允许使用循环语句和开关语句"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">1.在内联函数内不允许使用循环语句和开关语句</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-内联函数的定义必须出现在内联函数第一次调用之前"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">2.内联函数的定义必须出现在内联函数第一次调用之前</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-类结构中所在的类说明内部定义的函数是内联函数"><span class="post-toc-number">3.8.</span> <span class="post-toc-text">3.类结构中所在的类说明内部定义的函数是内联函数</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#⑦this指针-指向对象本身"><span class="post-toc-number">3.9.</span> <span class="post-toc-text">⑦this指针(指向对象本身)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#⑧指向类的指针"><span class="post-toc-number">3.10.</span> <span class="post-toc-text">⑧指向类的指针</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#⑨静态成员"><span class="post-toc-number">3.11.</span> <span class="post-toc-text">⑨静态成员</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-类"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">类 & 对象详解</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-10-23 10:43:24" datetime="2020-10-23T02:43:24.000Z"  itemprop="datePublished">2020-10-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="类-amp-对象详解"><a href="#类-amp-对象详解" class="headerlink" title="类 &amp; 对象详解"></a>类 &amp; 对象详解</h4><hr>
+<h5 id="①类成员函数"><a href="#①类成员函数" class="headerlink" title="①类成员函数"></a>①类成员函数</h5><hr>
+<h5 id="②类访问修饰符-public、private、protected"><a href="#②类访问修饰符-public、private、protected" class="headerlink" title="②类访问修饰符(public、private、protected)"></a>②类访问修饰符(public、private、protected)</h5><h5 id="public继承-原修饰符不变；"><a href="#public继承-原修饰符不变；" class="headerlink" title="- public继承 原修饰符不变；"></a>- public继承 原修饰符不变；</h5><h5 id="protected继承-public升级为protected-其余不变；"><a href="#protected继承-public升级为protected-其余不变；" class="headerlink" title="- protected继承 public升级为protected,其余不变；"></a>- protected继承 public升级为protected,其余不变；</h5><h5 id="private继承-修饰符全升级为private"><a href="#private继承-修饰符全升级为private" class="headerlink" title="- private继承 修饰符全升级为private"></a>- private继承 修饰符全升级为private</h5><blockquote>
+<h5 id="private-成员只能被本类成员和友元函数访问，不能被派生类访问"><a href="#private-成员只能被本类成员和友元函数访问，不能被派生类访问" class="headerlink" title="private 成员只能被本类成员和友元函数访问，不能被派生类访问"></a>private 成员只能被本类成员和友元函数访问，不能被派生类访问</h5></blockquote>
+<h5 id="gt-protected-成员可以被派生类访问"><a href="#gt-protected-成员可以被派生类访问" class="headerlink" title="&gt;  protected 成员可以被派生类访问"></a>&gt;  protected 成员可以被派生类访问</h5><hr>
+<h5 id="③构造函数-amp-析构函数"><a href="#③构造函数-amp-析构函数" class="headerlink" title="③构造函数 &amp; 析构函数"></a>③构造函数 &amp; 析构函数</h5><h5 id="构造函数-用于初始化"><a href="#构造函数-用于初始化" class="headerlink" title="构造函数 用于初始化"></a>构造函数 用于初始化</h5><h5 id="析构函数-用于释放内存"><a href="#析构函数-用于释放内存" class="headerlink" title="析构函数 用于释放内存"></a>析构函数 用于释放内存</h5><hr>
+<h5 id="④C-拷贝构造函数"><a href="#④C-拷贝构造函数" class="headerlink" title="④C++拷贝构造函数"></a>④C++拷贝构造函数</h5><h4 id="被调用条件："><a href="#被调用条件：" class="headerlink" title="被调用条件："></a>被调用条件：</h4><p>####1.当用类的一个对象去初始化该类的另一个对象（或引用）时系统自动调用拷贝构造函数实现拷贝赋值。</p>
+<h4 id="2-若函数的形参为类对象，调用函数时，实参赋值给形参，系统自动调用拷贝构造函数。（这里可有可能被编译器优化）"><a href="#2-若函数的形参为类对象，调用函数时，实参赋值给形参，系统自动调用拷贝构造函数。（这里可有可能被编译器优化）" class="headerlink" title="2.若函数的形参为类对象，调用函数时，实参赋值给形参，系统自动调用拷贝构造函数。（这里可有可能被编译器优化）"></a>2.若函数的形参为类对象，调用函数时，实参赋值给形参，系统自动调用拷贝构造函数。（这里可有可能被编译器优化）</h4><h5 id="3-当函数的返回值是类对象时，系统自动调用拷贝构造函数。（注意会有编译器可能会进行优化，而观察不到拷贝的发生）"><a href="#3-当函数的返回值是类对象时，系统自动调用拷贝构造函数。（注意会有编译器可能会进行优化，而观察不到拷贝的发生）" class="headerlink" title="3.当函数的返回值是类对象时，系统自动调用拷贝构造函数。（注意会有编译器可能会进行优化，而观察不到拷贝的发生）"></a>3.当函数的返回值是类对象时，系统自动调用拷贝构造函数。（注意会有编译器可能会进行优化，而观察不到拷贝的发生）</h5><hr>
+<h5 id="⑤友元函数-可以访问类的-private和protected成员"><a href="#⑤友元函数-可以访问类的-private和protected成员" class="headerlink" title="⑤友元函数(可以访问类的 private和protected成员)"></a>⑤友元函数(可以访问类的 private和protected成员)</h5><h5 id="friend-函数和类-可访问"><a href="#friend-函数和类-可访问" class="headerlink" title="friend 函数和类 可访问"></a>friend 函数和类 可访问</h5><hr>
+<h5 id="⑥内联函数"><a href="#⑥内联函数" class="headerlink" title="⑥内联函数"></a>⑥内联函数</h5><h5 id="解决程序中函数调用的效率问题"><a href="#解决程序中函数调用的效率问题" class="headerlink" title="解决程序中函数调用的效率问题"></a>解决程序中函数调用的效率问题</h5><h5 id="1-在内联函数内不允许使用循环语句和开关语句"><a href="#1-在内联函数内不允许使用循环语句和开关语句" class="headerlink" title="1.在内联函数内不允许使用循环语句和开关语句"></a>1.在内联函数内不允许使用循环语句和开关语句</h5><h5 id="2-内联函数的定义必须出现在内联函数第一次调用之前"><a href="#2-内联函数的定义必须出现在内联函数第一次调用之前" class="headerlink" title="2.内联函数的定义必须出现在内联函数第一次调用之前"></a>2.内联函数的定义必须出现在内联函数第一次调用之前</h5><h5 id="3-类结构中所在的类说明内部定义的函数是内联函数"><a href="#3-类结构中所在的类说明内部定义的函数是内联函数" class="headerlink" title="3.类结构中所在的类说明内部定义的函数是内联函数"></a>3.类结构中所在的类说明内部定义的函数是内联函数</h5><hr>
+<h5 id="⑦this指针-指向对象本身"><a href="#⑦this指针-指向对象本身" class="headerlink" title="⑦this指针(指向对象本身)"></a>⑦this指针(指向对象本身)</h5><hr>
+<h5 id="⑧指向类的指针"><a href="#⑧指向类的指针" class="headerlink" title="⑧指向类的指针"></a>⑧指向类的指针</h5><hr>
+<h5 id="⑨静态成员"><a href="#⑨静态成员" class="headerlink" title="⑨静态成员"></a>⑨静态成员</h5><hr>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2020-10-23T02:48:59.518Z" itemprop="dateUpdated">2020-10-23 10:48:59</time>
+</span><br>
+
+
+        
+        往下拉可以给作者留言，十分感谢你对作者文章的斧正！！！
+        
+    </div>
+    
+    <footer>
+        <a href="http://jiezhou.xyz">
+            <img src="/img/avatar.jpg" alt="Jie Zhou">
+            Jie Zhou
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-%E7%B1%BB/" rel="tag">C++类</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jiezhou.xyz/2020/10/23/%E7%B1%BB/&title=《类 & 对象详解》 — jie Zhou's Blog&pic=http://jiezhou.xyz/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jiezhou.xyz/2020/10/23/%E7%B1%BB/&title=《类 & 对象详解》 — jie Zhou's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jiezhou.xyz/2020/10/23/%E7%B1%BB/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《类 & 对象详解》 — jie Zhou's Blog&url=http://jiezhou.xyz/2020/10/23/%E7%B1%BB/&via=http://jiezhou.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jiezhou.xyz/2020/10/23/%E7%B1%BB/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/04/C%E8%AF%AD%E8%A8%80%E5%8F%98%E9%87%8F%E7%9A%84%E4%BA%A4%E6%8D%A2%E6%96%B9%E5%BC%8F-%E4%B8%8D%E7%94%A8%E4%B8%B4%E6%97%B6%E5%8F%98%E9%87%8F/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">C语言不用临时变量交换两变量问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Jie Zhou &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jiezhou.xyz/2020/10/23/%E7%B1%BB/&title=《类 & 对象详解》 — jie Zhou's Blog&pic=http://jiezhou.xyz/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jiezhou.xyz/2020/10/23/%E7%B1%BB/&title=《类 & 对象详解》 — jie Zhou's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jiezhou.xyz/2020/10/23/%E7%B1%BB/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《类 & 对象详解》 — jie Zhou's Blog&url=http://jiezhou.xyz/2020/10/23/%E7%B1%BB/&via=http://jiezhou.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jiezhou.xyz/2020/10/23/%E7%B1%BB/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAB0UlEQVR42u3ay26EMAwF0Pn/n55KXVVqSa/tkFLpZDUCBg4sLD/yesXr/bnWR5Lrvx5f32G0cHFxx9z3cl097Oq/3ynV+19dg4uLe567DkZ52OpdmRhwcXGfyZ2gk2CHi4v737nzgIWLi/t8blKc5CGpVyxtrtVwcXEH3GrD9I7fN/Z3cXFxi9z3YK3vsA55zSfi4uIe4fYSlF1H8teLajJcXNyt3GpG0UOsm6fJx8LFxT3D7bVBJ2EuQV/eARcX94+4u7oQSSDL06wfajVcXNzbuEnzIm+h5oPSPMUpJDq4uLhbudWwVd1ulac+hSoNFxf3CHfeysxLqeQ1IjouLu5t3N7oNO/IVs+Oih9cXNxN3GoukY8/J6GtCcXFxR1zq1uvqgOVXUURLi7uSW5v/DlJVqqFVrmjg4uLO+ZW2x/JC+zdmPXLTBgXF/cGbjWQ9Zqk1ZKp/C9cXNyt3N5Gq94YJr/+8gPh4uIe4VY7D9VRR54wjWo1XFzcG7jVtml+vFrqRGdxcXEPcnvNjiQ69mLnZZKEi4v7SG7e5sgHsYUWLS4u7sO4vZImH5lE4Q8XF/cgd7I9qzqAyYcuG2o1XFzcFnfeMO01SavlFi4u7hHuB4223URslmbFAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

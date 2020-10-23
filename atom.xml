@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jiezhou.xyz/"/>
-  <updated>2020-04-04T17:02:45.325Z</updated>
+  <updated>2020-10-23T02:48:59.518Z</updated>
   <id>http://jiezhou.xyz/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>类 &amp; 对象详解</title>
+    <link href="http://jiezhou.xyz/2020/10/23/%E7%B1%BB/"/>
+    <id>http://jiezhou.xyz/2020/10/23/%E7%B1%BB/</id>
+    <published>2020-10-23T02:43:24.000Z</published>
+    <updated>2020-10-23T02:48:59.518Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="类-amp-对象详解"><a href="#类-amp-对象详解" class="headerlink" title="类 &amp; 对象详解"></a>类 &amp; 对象详解</h4><hr><h5 id="①类成员函数"><a href="#①类成员函数" class="headerlink" title="①类成员函数"></a>①类成员函数</h5><hr><h5 id="②类访问修饰符-public、private、protected"><a href="#②类访问修饰符-public、private、protected" class="headerlink" title="②类访问修饰符(public、private、protected)"></a>②类访问修饰符(public、private、protected)</h5><h5 id="public继承-原修饰符不变；"><a href="#public继承-原修饰符不变；" class="headerlink" title="- public继承 原修饰符不变；"></a>- public继承 原修饰符不变；</h5><h5 id="protected继承-public升级为protected-其余不变；"><a href="#protected继承-public升级为protected-其余不变；" class="headerlink" title="- protected继承 public升级为protected,其余不变；"></a>- protected继承 public升级为protected,其余不变；</h5><h5 id="private继承-修饰符全升级为private"><a href="#private继承-修饰符全升级为private" class="headerlink" title="- private继承 修饰符全升级为private"></a>- private继承 修饰符全升级为private</h5><blockquote><h5 id="private-成员只能被本类成员和友元函数访问，不能被派生类访问"><a href="#private-成员只能被本类成员和友元函数访问，不能被派生类访问" class="headerlink" title="private 成员只能被本类成员和友元函数访问，不能被派生类访问"></a>private 成员只能被本类成员和友元函数访问，不能被派生类访问</h5></blockquote><h5 id="gt-protected-成员可以被派生类访问"><a href="#gt-protected-成员可以被派生类访问" class="headerlink" title="&gt;  protected 成员可以被派生类访问"></a>&gt;  protected 成员可以被派生类访问</h5><hr><h5 id="③构造函数-amp-析构函数"><a href="#③构造函数-amp-析构函数" class="headerlink" title="③构造函数 &amp; 析构函数"></a>③构造函数 &amp; 析构函数</h5><h5 id="构造函数-用于初始化"><a href="#构造函数-用于初始化" class="headerlink" title="构造函数 用于初始化"></a>构造函数 用于初始化</h5><h5 id="析构函数-用于释放内存"><a href="#析构函数-用于释放内存" class="headerlink" title="析构函数 用于释放内存"></a>析构函数 用于释放内存</h5><hr><h5 id="④C-拷贝构造函数"><a href="#④C-拷贝构造函数" class="headerlink" title="④C++拷贝构造函数"></a>④C++拷贝构造函数</h5><h4 id="被调用条件："><a href="#被调用条件：" class="headerlink" title="被调用条件："></a>被调用条件：</h4><p>####1.当用类的一个对象去初始化该类的另一个对象（或引用）时系统自动调用拷贝构造函数实现拷贝赋值。</p><h4 id="2-若函数的形参为类对象，调用函数时，实参赋值给形参，系统自动调用拷贝构造函数。（这里可有可能被编译器优化）"><a href="#2-若函数的形参为类对象，调用函数时，实参赋值给形参，系统自动调用拷贝构造函数。（这里可有可能被编译器优化）" class="headerlink" title="2.若函数的形参为类对象，调用函数时，实参赋值给形参，系统自动调用拷贝构造函数。（这里可有可能被编译器优化）"></a>2.若函数的形参为类对象，调用函数时，实参赋值给形参，系统自动调用拷贝构造函数。（这里可有可能被编译器优化）</h4><h5 id="3-当函数的返回值是类对象时，系统自动调用拷贝构造函数。（注意会有编译器可能会进行优化，而观察不到拷贝的发生）"><a href="#3-当函数的返回值是类对象时，系统自动调用拷贝构造函数。（注意会有编译器可能会进行优化，而观察不到拷贝的发生）" class="headerlink" title="3.当函数的返回值是类对象时，系统自动调用拷贝构造函数。（注意会有编译器可能会进行优化，而观察不到拷贝的发生）"></a>3.当函数的返回值是类对象时，系统自动调用拷贝构造函数。（注意会有编译器可能会进行优化，而观察不到拷贝的发生）</h5><hr><h5 id="⑤友元函数-可以访问类的-private和protected成员"><a href="#⑤友元函数-可以访问类的-private和protected成员" class="headerlink" title="⑤友元函数(可以访问类的 private和protected成员)"></a>⑤友元函数(可以访问类的 private和protected成员)</h5><h5 id="friend-函数和类-可访问"><a href="#friend-函数和类-可访问" class="headerlink" title="friend 函数和类 可访问"></a>friend 函数和类 可访问</h5><hr><h5 id="⑥内联函数"><a href="#⑥内联函数" class="headerlink" title="⑥内联函数"></a>⑥内联函数</h5><h5 id="解决程序中函数调用的效率问题"><a href="#解决程序中函数调用的效率问题" class="headerlink" title="解决程序中函数调用的效率问题"></a>解决程序中函数调用的效率问题</h5><h5 id="1-在内联函数内不允许使用循环语句和开关语句"><a href="#1-在内联函数内不允许使用循环语句和开关语句" class="headerlink" title="1.在内联函数内不允许使用循环语句和开关语句"></a>1.在内联函数内不允许使用循环语句和开关语句</h5><h5 id="2-内联函数的定义必须出现在内联函数第一次调用之前"><a href="#2-内联函数的定义必须出现在内联函数第一次调用之前" class="headerlink" title="2.内联函数的定义必须出现在内联函数第一次调用之前"></a>2.内联函数的定义必须出现在内联函数第一次调用之前</h5><h5 id="3-类结构中所在的类说明内部定义的函数是内联函数"><a href="#3-类结构中所在的类说明内部定义的函数是内联函数" class="headerlink" title="3.类结构中所在的类说明内部定义的函数是内联函数"></a>3.类结构中所在的类说明内部定义的函数是内联函数</h5><hr><h5 id="⑦this指针-指向对象本身"><a href="#⑦this指针-指向对象本身" class="headerlink" title="⑦this指针(指向对象本身)"></a>⑦this指针(指向对象本身)</h5><hr><h5 id="⑧指向类的指针"><a href="#⑧指向类的指针" class="headerlink" title="⑧指向类的指针"></a>⑧指向类的指针</h5><hr><h5 id="⑨静态成员"><a href="#⑨静态成员" class="headerlink" title="⑨静态成员"></a>⑨静态成员</h5><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;类-amp-对象详解&quot;&gt;&lt;a href=&quot;#类-amp-对象详解&quot; class=&quot;headerlink&quot; title=&quot;类 &amp;amp; 对象详解&quot;&gt;&lt;/a&gt;类 &amp;amp; 对象详解&lt;/h4&gt;&lt;hr&gt;
+&lt;h5 id=&quot;①类成员函数&quot;&gt;&lt;a href=&quot;#①类成员函数
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://jiezhou.xyz/categories/C/"/>
+    
+    
+      <category term="C++类" scheme="http://jiezhou.xyz/tags/C-%E7%B1%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>C语言不用临时变量交换两变量问题</title>
