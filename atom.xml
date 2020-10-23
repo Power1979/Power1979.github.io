@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jiezhou.xyz/"/>
-  <updated>2020-10-23T02:48:59.518Z</updated>
+  <updated>2020-10-23T03:28:11.165Z</updated>
   <id>http://jiezhou.xyz/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>类 &amp; 继承派生</title>
+    <link href="http://jiezhou.xyz/2020/10/23/%E7%BB%A7%E6%89%BF%E6%B4%BE%E7%94%9F/"/>
+    <id>http://jiezhou.xyz/2020/10/23/%E7%BB%A7%E6%89%BF%E6%B4%BE%E7%94%9F/</id>
+    <published>2020-10-23T03:18:24.000Z</published>
+    <updated>2020-10-23T03:28:11.165Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="继承派生"><a href="#继承派生" class="headerlink" title="继承派生"></a>继承派生</h4><h5 id="继承时，B继承A，A仅自定义带参数的构造函数时，会报错。原因：A的自定义覆盖函数覆盖了系统默认的无参数构造函数。解决方法有两种，建议第二种。"><a href="#继承时，B继承A，A仅自定义带参数的构造函数时，会报错。原因：A的自定义覆盖函数覆盖了系统默认的无参数构造函数。解决方法有两种，建议第二种。" class="headerlink" title="继承时，B继承A，A仅自定义带参数的构造函数时，会报错。原因：A的自定义覆盖函数覆盖了系统默认的无参数构造函数。解决方法有两种，建议第二种。"></a>继承时，B继承A，A仅自定义带参数的构造函数时，会报错。原因：A的自定义覆盖函数覆盖了系统默认的无参数构造函数。解决方法有两种，建议第二种。</h5><h3 id="方法①"><a href="#方法①" class="headerlink" title="方法①"></a>方法①</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class A                 &#x2F;&#x2F;基类</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    int num_A;</span><br><span class="line">    A(int public_num_A);</span><br><span class="line">&#125;;</span><br><span class="line">A::A(int public_num_A)</span><br><span class="line">&#123;</span><br><span class="line">    num_A &#x3D; public_num_A;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class B : public A</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    int num_B;</span><br><span class="line">    B();&#x2F;&#x2F;错误</span><br><span class="line">    B(int public_num_A); &#x2F;&#x2F;正确</span><br><span class="line">&#125;;</span><br><span class="line">B::B()                   &#x2F;&#x2F;错误 调用class A无参构造函数失败</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">B::B(int public_num_A) : A(public_num_A) &#x2F;&#x2F;正确</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="方法②"><a href="#方法②" class="headerlink" title="方法②"></a>方法②</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class A                 &#x2F;&#x2F;基类</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    int num_A;</span><br><span class="line">    A();                &#x2F;&#x2F;加多一个入参为空的构造函数</span><br><span class="line">    A(int public_num_A);</span><br><span class="line">&#125;;</span><br><span class="line">A::A()</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">A::A(int public_num_A)</span><br><span class="line">&#123;</span><br><span class="line">    num_A &#x3D; public_num_A;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class B : public A</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    int num_B;</span><br><span class="line">    B();</span><br><span class="line">&#125;;</span><br><span class="line">B::B()                   </span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="总结-建议用方法②，可以方便给其他工程师继承该类，即使调用基类缺省构造函数也不会报错。"><a href="#总结-建议用方法②，可以方便给其他工程师继承该类，即使调用基类缺省构造函数也不会报错。" class="headerlink" title="总结:建议用方法②，可以方便给其他工程师继承该类，即使调用基类缺省构造函数也不会报错。"></a>总结:建议用方法②，可以方便给其他工程师继承该类，即使调用基类缺省构造函数也不会报错。</h4>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;继承派生&quot;&gt;&lt;a href=&quot;#继承派生&quot; class=&quot;headerlink&quot; title=&quot;继承派生&quot;&gt;&lt;/a&gt;继承派生&lt;/h4&gt;&lt;h5 id=&quot;继承时，B继承A，A仅自定义带参数的构造函数时，会报错。原因：A的自定义覆盖函数覆盖了系统默认的无参数构造函数。解
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://jiezhou.xyz/categories/C/"/>
+    
+    
+      <category term="C++继承" scheme="http://jiezhou.xyz/tags/C-%E7%BB%A7%E6%89%BF/"/>
+    
+  </entry>
   
   <entry>
     <title>类 &amp; 对象详解</title>
