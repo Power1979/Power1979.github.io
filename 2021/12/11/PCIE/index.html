@@ -28,7 +28,7 @@
  replay-btn" aria-hidden="true"></i></a>
     <div class="post-title">
         <p>
-            PCIe
+            UEFI PCIe
         </p>
         <hr>
     </div>
@@ -47,11 +47,11 @@
 <p>*8functions/device *32devices/bus *256 buses/system = 16M</p>
 <p>⑤IO和MMIO的地址访问</p>
 <p>答：IO寄存器范围为0xCF8 -0xCFF</p>
-<p><img src="https://s2.loli.net/2021/12/11/G9uKxJqiLXryPn2.png" alt="c7f9ff18f02f0a3a1ca9d17627e87145.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/fRY5hxz7Z1cWpwU.png" alt="c7f9ff18f02f0a3a1ca9d17627e87145.png"></p>
 <hr>
 <p>PCIe总线具有以下关键技术优势：</p>
 <p>①具有双通道、高带宽、传输速度快、灵活扩展性。采用双通道串行传输模式，类似于全双工模式。1.0版本的PCIe每个信道单方向的传输速率为2.5Gbps。PCIe的物理层上提供X1、X2、X4、X8、X16、X32模式的可选择的通道，可根据用户需求配置不同的通道，同时该机制也大大提高了传输信号的带宽。</p>
-<p><img src="https://s2.loli.net/2021/12/11/fRY5hxz7Z1cWpwU.png" alt="0a5b7fa58bd5ff3707858577628faede.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/FUDu81aCjAdGVez.png" alt="0a5b7fa58bd5ff3707858577628faede.png"></p>
 <p>②设备间点对点串行互联。为每个PCIe设备分配独立的通道带宽。充分保障了各设备的带宽资源，并且不需要设备之间共享资料，提高了传输速率。</p>
 <p>③支持设备热插拔和热交换。PCIe总线接口插槽可以像USB那样进行热插拔和热交换，使用起来非常方便。</p>
 <p>④低功耗，并由电源管理。PCIe总线接口物理结构简单，例如x1通道只需要4根数据线实现全双工传输，即发送和接受各一对LVDS差分信号。实际上x1模式金手指分为AB两面，每一面有18根芯线引脚，且每增加一个通道，只需要扩展4根芯线。由于数据传输芯线数量较少，所以功耗也就大大降低。</p>
@@ -65,7 +65,7 @@
 <p>①由一系列的点到点的链路设备相互组成。</p>
 <p>②PCIe的拓扑结构的基本元素包括：根联合体(Root Cpmplex)、与根联合体相连的CPU、主存储器(Memory)、交换器(Switch)、端点(Endpoints)、PCI Exoress到PCI的桥(PCI Express-PCI Bridge)等</p>
 <p>下图为PCIe总线系统拓扑结构图</p>
-<p><img src="https://s2.loli.net/2021/12/11/X1Ri6yKYsuLICpb.png" alt="6ea06c4e61fb57d4f2ec05cc24d9a156.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/rwpPl1WxVZsko8Q.png" alt="6ea06c4e61fb57d4f2ec05cc24d9a156.png"></p>
 <p>一、PCIe拓扑结构的基本元素：</p>
 <p>1、根联合体：I/O层次结构的根设备，将CPU和系统主存储器子系统连到I/O上，功能相当于PCI系统中的北桥。根联合体支持一个以上PCIe端口，且每一个端口都定义了一条PCIe的链路结构。根联合体可以代表CPU访问主存储器及开启PCIe事务，还可以接收PCIe设备发送过来的访问主存储器的请求，起到事务在端口间传输路由的作用。</p>
 <p>2、交换器：交换器相当于一个具有多个虚拟PCI-PCI桥逻辑功能的设备集合，它可以将事务从任意一个端口路由到另一个端口。它的端口数有2~n个，每一个端口连接一条PCIe链路，各设备间的交互就是通过这种方式实现的。</p>
@@ -74,7 +74,7 @@
 <hr>
 <p>二、PCIe的层次结构</p>
 <p>①PCIe体系结构采用分层设计，类似于计算机网络通信中ISO/OSI七层结构，而PCIe的核心层次有三层，PCIe的层次结构如下图所示：</p>
-<p><img src="https://s2.loli.net/2021/12/11/LtXjuYGeV5OWh9x.png" alt="441dfc937b4e60d9d6934a3696fd4fa4.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/G9uKxJqiLXryPn2.png" alt="441dfc937b4e60d9d6934a3696fd4fa4.png"></p>
 <p>②从上往下层分别为：事务层（Transaction Layer）、数据链路层(Link Layer)和物理层(Physical Layer)。实际上在事务层之上还包括软基层（Software Layer）。设备之间的通信，等效于各设备对应层次之间的数据包交换。</p>
 <p>1、物理层</p>
 <p>物理层是最底层，是物理接口之间的连接，位于数据链路层与链路之间。物理层体现PCIe总线接口的物理特性，如通道数、LVDS驱动、点对点串行连接等。物理层的主要任务是：一是接受物理层的保温并传送至数据链路层；二是发送数据链路层的DLLP到物理层。通过8/10b解码方式，时钟信息被编码成数据形式，这种方式比单独采用并行时钟的方式更能提高传输效率和节省传输通道。该层提供了x1、x2、x4、x8、x12、x16和x32方式的信道带宽，总线带宽的计算公式为：</p>
@@ -87,14 +87,14 @@
 <p>PCIe的软件层保持与PCI总线的兼容，因此被认为是最重要的部分。PCIe启动时，系统的初始化和运行就像在PCI环境下，不需要对系统中的资源和硬件设备进行任何改动。在软件相应时间模式上，PCIe支持PCI的共享内存模式、本地存储。事实上，在PCIe平台中，完全可以实现PCIe总线到PCI总线软件上的平稳过渡。</p>
 <hr>
 <p>PCIe线路图</p>
-<p><img src="https://s2.loli.net/2021/12/11/i6xPLnyBgIFc5kC.png" alt="225f56b1eff3fe25baeb6f2ed9afaf57.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/VMfeaknRFGwAUBW.png" alt="225f56b1eff3fe25baeb6f2ed9afaf57.png"></p>
 <p>PCIe设备编号：</p>
 <p>①每一个PCIe Function都有一个唯一的PFA(PCI Function Address)。PFA由bus number、device number、function number 组成。</p>
 <p>②在PFA中，Bus Number占用8位，Device Number占用5位，Function Number占用3位。显然，PCIe总线最多支持256个子总线，每个子总线最多支持32个设备，每个设备最多支持8个功能。</p>
-<p><img src="https://s2.loli.net/2021/12/11/9WUluizoyAm5SrI.png" alt="eade79977dec4a3b8cc1f16d2cce842a.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/kbzy1AQ24na6pgO.png" alt="eade79977dec4a3b8cc1f16d2cce842a.png"></p>
 <hr>
 <p>PCIe Device的地址映射</p>
-<p><img src="https://s2.loli.net/2021/12/11/EqMfnsTZdjpWUva.png" alt="3f58178b373596ca2f8655bca77ac3bb.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/GU8sTQ7hlDtz6Fk.png" alt="3f58178b373596ca2f8655bca77ac3bb.png"></p>
 <hr>
 <p>PCIe配置空间</p>
 <p>PCIe spec规定PCIe设备必须提供独立的配置空间。配置空间里面存储了一些基本信息，如生产商、设备ID、设备型、IRQ中断号，还有内部IO空间和MMIO空间的起始地址和大小。</p>
@@ -103,14 +103,14 @@
 <p>配置空间的定义分为两个Type，Type0和Type1。Type0定义Device，Type1定义Bridge。</p>
 <hr>
 <p>Type 0 Endpoint（终端设备）的配置</p>
-<p><img src="https://s2.loli.net/2021/12/11/qEWsrAl1HxL7nhY.png" alt="4c653d2b009290a8d3d6037906682011.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/aP58bgOloxcn9N3.png" alt="4c653d2b009290a8d3d6037906682011.png"></p>
 <p>Type 1 Bridge(桥接器)的配置</p>
-<p><img src="https://s2.loli.net/2021/12/11/4NkHhd2mbqQV7vM.png" alt="cc7caba9799954e1c837cc1509dd9c21.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/bvBV3ymhWUscS5d.png" alt="cc7caba9799954e1c837cc1509dd9c21.png"></p>
 <hr>
 <p>知乎老狼</p>
 <p>①PCI spec规定了PCI设备必须提供的单独地址空间：配置空间（configuration space）,前64个字节（其地址范围为0x00<del>0x3F）是所有PCI设备必须支持的（有不少简单的设备也仅支持这些），此外PCI/PCI-X还扩展了0x40</del>0xFF这段配置空间，在这段空间主要存放一些与MSI或者MSI-X中断机制和电源管理相关的Capability结构。</p>
 <p>②前文提到过，PCI配置空间和内存空间是分离的，那么如何访问这段空间呢？我们首先要对所有的PCI设备进行编码以避免冲突，通常我们是以三段编码来区分PCI设备，即Bus Number, Device Number和Function Number,以后我们简称他们为BDF。有了BDF我们既可以唯一确定某一PCI设备。不同的芯片厂商访问配置空间的方法略有不同，我们以Intel的芯片组为例，其使用IO空间的CF8h/CFCh地址来访问PCI设备的配置寄存器。</p>
-<p><img src="https://s2.loli.net/2021/12/11/ehWx2mNv3w1Eil5.png" alt="15d5c811f6a902d1fa1c01bb8b935be1.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/EVe7JyD9PU2kZ4c.png" alt="15d5c811f6a902d1fa1c01bb8b935be1.png"></p>
 <p>1、CF8h: CONFIG_ADDRESS。PCI配置空间地址端口</p>
 <p>2、CFCh: CONFIG_DATA。PCI配置空间数据端口。</p>
 <p>3、CONFIG_ADDRESS寄存器格式：</p>
@@ -122,15 +122,15 @@
 <p>1: 0 位：恒为“00”。这是因为CF8h、CFCh端口是32位端口。</p>
 <p>③</p>
 <p>PCIe规范在PCI规范的基础上，将配置空间扩展到4KB。原来的CF8/CFC方法仍然可以访问所有PCIe设备配置空间的头255B，但是该方法访问不了剩下的（4K-255）配置空间。怎么办呢？Intel提供了另外一种PCIe配置空间访问方法：通过将配置空间映射到Memory map IO（MMIO）空间，对PCIe配置空间可以像对内存一样进行读写访问了。</p>
-<p><img src="https://s2.loli.net/2021/12/11/BHJnKw1dXOtSom8.png" alt="74c99711204946206c8a7abb142fd559.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/QrmeAUpnY546gWP.png" alt="74c99711204946206c8a7abb142fd559.png"></p>
 <p>这样再加上PCI板子上的RAM或者ROM，整个PCIe Device空间。</p>
-<p><img src="https://s2.loli.net/2021/12/11/Q8bXIFgGqhwr7a3.png" alt="f6912f6da13e969b81ee0fc86b42fb40.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/afSet7cjR1lqvFL.png" alt="f6912f6da13e969b81ee0fc86b42fb40.png"></p>
 <p>④MMIO这段空间有256MB，因为按照PCIe规范，支持最多256个buses，每个Bus支持最多32个PCI devices，每个device支持最多8个function,也就是说：占用内存的最大值为：256 * 32 * 8 * 4K = 256MB。在台式机上我们很多时候觉得占用256MB空间太浪费（造成4G以下memory可用空间变少，虽然实际memory可以映射到4G以上，但对32位OS影响很大），PCI Bus也没有那么多，所以可以设置成最低64MB，即最多64个Bus。那么这个256MB的MMIO空间在在哪里呢？我们以Intel的Haswell平台为例</p>
-<p><img src="https://s2.loli.net/2021/12/11/9sg1cQORMd5Yzx4.png" alt="ad3526f07cab4cb0394ae9a7fe814623.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/GeWNv8XAgElYzmI.png" alt="ad3526f07cab4cb0394ae9a7fe814623.png"></p>
 <hr>
 <p>软件访问</p>
-<p><img src="https://s2.loli.net/2021/12/11/ADlVuNcZE7UPBa3.png" alt="5e37661dfc1f9f61a304594c70b88ede.png"></p>
-<p><img src="https://s2.loli.net/2021/12/11/hIT1nxqDHMmyNC9.png" alt="7159e4bf6d7fd6feb608c1d0c27ef50e.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/fYCilNS4QZvLO3y.png" alt="5e37661dfc1f9f61a304594c70b88ede.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/Dv4tu5LyaRgPVTq.png" alt="7159e4bf6d7fd6feb608c1d0c27ef50e.png"></p>
 
     </div>
 
